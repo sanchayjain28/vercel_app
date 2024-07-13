@@ -11,7 +11,7 @@ fast_api_demo_key = APIKeyHeader(name='fast_api_demo_key')
 auth_key = os.getenv('fast_api_demo_key')
 
 async def check_header(api_key: str = Depends(fast_api_demo_key)):
-    if api_key != "1234sanchay":
+    if api_key != auth_key:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid API key, Pass API key in header")
     return api_key
