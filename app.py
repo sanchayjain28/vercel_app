@@ -2,12 +2,13 @@ from routes import router
 import uvicorn
 from fastapi import HTTPException, status, Depends, FastAPI
 from fastapi.security import APIKeyHeader
+import os
 
 app = FastAPI()
 
-fast_api_demo_key = APIKeyHeader(name='Titan-API-key')
+fast_api_demo_key = APIKeyHeader(name='fast_api_demo_key')
 
-
+auth_key = os.getenv('fast_api_demo_key')
 
 async def check_header(api_key: str = Depends(fast_api_demo_key)):
     if api_key != "1234sanchay":
