@@ -17,7 +17,7 @@ async def check_header(api_key: str = Depends(fast_api_demo_key)):
     if api_key != auth_key:
         print(api_key,' is not a valid API key',auth_key)
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid API key, Pass API key in header")
+            status_code=status.HTTP_401_UNAUTHORIZED, detail=f"Invalid API key, Pass API key in header{auth_key}, {api_key}")
     return api_key
 
 
