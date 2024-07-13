@@ -1,4 +1,4 @@
-from main import router
+from routes import router
 import uvicorn
 from fastapi import HTTPException, status, Depends, FastAPI
 from fastapi.security import APIKeyHeader
