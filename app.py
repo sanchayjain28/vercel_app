@@ -21,7 +21,7 @@ async def check_header(api_key: str = Depends(fast_api_demo_key)):
     return api_key
 
 
-app.include_router(router, dependencies=[Depends(check_header)])
-
+# app.include_router(router, dependencies=[Depends(check_header)])
+app.include_router(router)
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
